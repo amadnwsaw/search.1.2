@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    // 確保 /search 請求載入 /search/index.html，但保留 ?q= 參數
+    // --- 搜尋頁面重寫規則 (三條) ---
     {
       "source": "/search",
       "destination": "/search/index.html"
@@ -11,15 +11,16 @@
     },
     {
       "source": "/search/:path*",
-      "destination": "/search/index.html"
+      "destination": "/search/index.html"  // <--- 注意：這是 rewrites 陣列的最後一項，後面沒有逗號
     }
-  ],
+  ],  // <--- 注意：這是 rewrites 區塊的結尾，後面有一個逗號，因為還有 redirects 區塊
+  
   "redirects": [
-    // 確保主頁 / 自動跳轉到 /?hl=tw，設置為永久重定向 (308)
+    // --- 主頁重定向規則 (一條) ---
     {
       "source": "/",
       "destination": "/?hl=tw",
-      "permanent": true
+      "permanent": true // <--- 注意：這是 redirects 陣列的最後一項，後面沒有逗號
     }
-  ]
+  ] // <--- 注意：這是 redirects 區塊的結尾，後面沒有逗號
 }
