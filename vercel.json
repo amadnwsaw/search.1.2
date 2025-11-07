@@ -10,16 +10,16 @@
     },
     {
       "source": "/search/:path*",
-      "destination": "/search/index.html"  //
+      "destination": "/search/index.html"  
     }
-  ],  // 
+  ], 
   
   "redirects": [
     // 
     {
       "source": "/",
       "destination": "/?hl=tw",
-      "permanent": true // 
+      "permanent": true
     }
-  ] //
+  ]
 }
