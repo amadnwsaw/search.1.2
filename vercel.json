@@ -1,24 +1,18 @@
 {
-  "rewrites": [
-    {
-      "source": "/search",
-      "destination": "/search/index.html"
-    },
-    {
-      "source": "/search/",
-      "destination": "/search/index.html"
-    },
-    {
-      "source": "/search/:path*",
-      "destination": "/search/index.html"
-    }
-  ],
-  
   "redirects": [
     {
+      // 確保 / 主頁的請求，強制跳轉到 /?hl=tw
       "source": "/",
       "destination": "/?hl=tw",
-      "permanent": false 
+      "permanent": false // 使用暫時重定向 (302/307)，避免快取問題
+    }
+  ],
+  "rewrites": [
+    {
+      // 確保所有未匹配的路由（例如 /search 或 /about）都載入它們對應的 index.html
+      // 這是 Single Page Application (SPA) 的標準做法
+      "source": "/:path((?!api/).*)",
+      "destination": "/index.html"
     }
   ]
 }
