@@ -1,0 +1,25 @@
+{
+  "rewrites": [
+    // 確保 /search 請求載入 /search/index.html，但保留 ?q= 參數
+    {
+      "source": "/search",
+      "destination": "/search/index.html"
+    },
+    {
+      "source": "/search/",
+      "destination": "/search/index.html"
+    },
+    {
+      "source": "/search/:path*",
+      "destination": "/search/index.html"
+    }
+  ],
+  "redirects": [
+    // 確保主頁 / 自動跳轉到 /?hl=tw，設置為永久重定向 (308)
+    {
+      "source": "/",
+      "destination": "/?hl=tw",
+      "permanent": true
+    }
+  ]
+}
