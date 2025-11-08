@@ -1,11 +1,9 @@
 {
   "rewrites": [
-    // 1. 強制讓根目錄的請求，載入 index.html
     {
       "source": "/",
       "destination": "/index.html"
     },
-    // 2. 確保 /search 請求載入 /search/index.html
     {
       "source": "/search/:path*",
       "destination": "/search/index.html"
